@@ -1,0 +1,139 @@
+/* Basic styles for Pérenne website */
+body {
+    font-family: 'Garamond', 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #ffffff;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #800020; /* Burgundy */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#hero {
+    color: #ffffff;
+    padding: 6rem 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+#hero .hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    font-style: italic;
+}
+
+#origin img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+#origin h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    color: #800020; /* Burgundy */
+}
+
+#philosophy {
+    background-color: #f9f9f9;
+}
+
+#philosophy h2 {
+    font-size: 2.5rem;
+    font-style: italic;
+    font-weight: normal;
+}
+
+#montage-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#collection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.wine-trio {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.wine {
+    flex-basis: 300px;
+}
+
+.wine img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.wine h3 {
+    font-size: 1.5rem;
+    color: #800020; /* Burgundy */
+}
+
+#coming-soon {
+    background-color: #800020; /* Burgundy */
+    color: #ffffff;
+}
+
+#coming-soon h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+}
+
+#coming-soon p {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+footer {
+    background: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 2rem;
+}
