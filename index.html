@@ -3,25 +3,989 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pérenne Wines - Premium Sonoma County Wines</title>
-    <meta name="description" content="Discover Pérenne Wines - exceptional Sonoma County wines including Pinot Noir, Brut Champagne, and Rosé. Crafted with passion in California.">
-    <meta name="keywords" content="Pérenne Wines, Sonoma County wines, Pinot Noir, Champagne Brut, Rosé, California wines, premium wine, luxury wine, modern wine">
+    <title>Pérenne Wines | Luxury Sonoma County Wines & Custom Gifts</title>
+    <meta name="description" content="Experience Pérenne Wines, a luxury Sonoma County winery offering premium Pinot Noir, Chardonnay, and custom gifts.">
+    <link rel="icon" type="image/png" href="https://pperenne.com/images/Plogo.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --dark-burgundy: #5e0f15;
+            --gold: #c6a972;
+            --cream: #f8f5f0;
+            --dark-gray: #333333;
+            --light-gray: #777777;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-gray);
+            background-color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--dark-burgundy);
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-image: linear-gradient(90deg, var(--gold), var(--dark-burgundy));
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-image: linear-gradient(45deg, var(--dark-burgundy) 0%, #a84b53 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(94, 15, 21, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--dark-burgundy);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(248, 245, 240, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: padding 0.4s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 10px;
+            transition: transform 0.4s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.1);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-burgundy);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 35px;
+        }
+
+        .nav-menu a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.4s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--dark-burgundy);
+            transition: width 0.4s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--dark-burgundy);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-burgundy);
+            cursor: pointer;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--white);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: none;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light-gray);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: var(--light-gray);
+        }
+
+        .wines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .wine-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .wine-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 28px rgba(94, 15, 21, 0.2), 0 8px 10px rgba(94, 15, 21, 0.18);
+        }
+
+        .wine-image {
+            height: 400px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wine-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .wine-card:hover .wine-image img {
+            transform: scale(1.05);
+        }
+
+        .wine-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .wine-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            min-height: 3em;
+        }
+
+        .wine-info p {
+            margin-bottom: 25px;
+            color: var(--light-gray);
+            font-style: italic;
+        }
+
+        .membership-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .membership-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .membership-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 28px rgba(94, 15, 21, 0.2), 0 8px 10px rgba(94, 15, 21, 0.18);
+            border-color: var(--gold);
+        }
+
+        .membership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-image: linear-gradient(90deg, var(--dark-burgundy), var(--gold));
+        }
+
+        .membership-card h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .benefits-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: var(--light-gray);
+            position: relative;
+            padding-left: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .benefits-list li:hover {
+            color: var(--dark-burgundy);
+        }
+
+        .benefits-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+         }
+
+        .testimonial-card {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--cream);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--light-gray);
+            position: relative;
+        }
+
+        .testimonial-card p::before,
+        .testimonial-card p::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--gold);
+            position: absolute;
+            opacity: 0.2;
+        }
+
+        .testimonial-card p::before {
+            top: -20px;
+            left: -15px;
+        }
+
+        .testimonial-card p::after {
+            bottom: -40px;
+            right: -15px;
+        }
+
+        .author {
+            font-weight: 600;
+            color: var(--dark-burgundy);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .contact-info h3, .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-details p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--light-gray);
+        }
+
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .map {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(198, 169, 114, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background-color: #2c070a;
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about h3, .footer-links h4, .footer-contact h4 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-about p, .footer-links a, .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.4s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            text-shadow: 0 0 5px var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.4s ease, text-shadow 0.4s ease;
+        }
+
+        .copyright a:hover {
+            color: var(--white);
+            text-shadow: 0 0 5px var(--gold);
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chatbot-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-image: linear-gradient(45deg, var(--dark-burgundy) 0%, #a84b53 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(94, 15, 21, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .chatbot-header {
+            background-image: linear-gradient(90deg, var(--dark-burgundy), #2c070a);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-header h3 {
+            color: var(--white);
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .chatbot-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background-color: #e9e9eb;
+            color: var(--dark-gray);
+            border-bottom-left-radius: 5px;
+         }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: var(--dark-burgundy);
+            color: var(--white);
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+            background-color: var(--white);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chatbot-input input:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(198, 169, 114, 0.2);
+        }
+
+        .chatbot-input button {
+            margin-left: 10px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--dark-burgundy);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background-color: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .quick-action-btn {
+            background-color: rgba(198, 169, 114, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--dark-burgundy);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-action-btn:hover {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #b0b0b0;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .wines-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+                padding-top: 80px;
+            }
+
+            header {
+                background-color: rgba(248, 245, 240, 0.7);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 20px 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links h4::after,
+            .footer-contact h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .chatbot-window {
+                width: calc(100vw - 40px);
+                height: 60vh;
+                bottom: 80px;
+                right: 20px;
+            }
+
+            .chatbot-container {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .quick-actions {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
             <a href="#" class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI1IDVMMzUgMTVIMTUuNUwxNSAzNUgzNUwyNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA0NUwxNSA-hbtzIWANPérenne Logo" class="logo-img">
+                <img src="https://pperenne.com/images/Plogo.png" alt="Pérenne Wines Logo" class="logo-img">
                 <span class="logo-text">Pérenne</span>
             </a>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#origins">Vineyards</a></li>
                     <li><a href="#wines">Wines</a></li>
                     <li><a href="#membership">Membership</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
@@ -35,17 +999,18 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="video-background">
-            <video autoplay muted loop playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-grapes-on-the-vine-in-a-vineyard-44605-large.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline id="heroVideo">
+                <source src="https://assets.mixkit.co/videos/22736/22736-720.mp4" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
             <div class="video-overlay"></div>
+            <div class="video-fallback" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
         </div>
         <div class="hero-content">
-            <h1>Exquisite by Nature</h1>
-            <p>A taste of romance, a celebration of life.</p>
+            <h1>Crafted to honor the strength and grace of women and mothers.</h1>
             <div class="hero-buttons">
-                <a href="#wines" class="btn">Discover Our Wines</a>
-                <a href="#membership" class="btn btn-outline">Join The Club</a>
+                <a href="#wines" class="btn">Shop Now</a>
+                <a href="#membership" class="btn btn-outline">Join Membership</a>
             </div>
         </div>
     </section>
@@ -58,14 +1023,27 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>From Sonoma, with Love</h3>
-                    <p>Pérenne is more than wine; it is an exquisite experience born from the beautiful Sonoma County terroir. It is the perfect pour for honoring strength, celebrating life's moments, and savoring romance.</p>
-                    <p>Our journey began with a deep respect for the land and a passion for crafting wines that reflect the unique character of Sonoma County. We believe in sustainable farming and gentle winemaking techniques to create wines of elegance and distinction.</p>
+                    <h3>The Storyteller of Wine</h3>
+                    <p>The story of Pérenne is the story of Rohit Prinja Sharma, a small-town boy from Batala, India, who chased the American Dream to the rolling hills of Healdsburg, California. Inspired by his mother, Prem, Rohit's journey is one of passion, dedication, and a deep-seated desire to create something eternal.</p>
+                    <p>Guided by the mentorship of Kerry & Daisy Dameski and the encouragement of his friend David, Rohit founded Pérenne—a name meaning "eternal"—as a tribute to the enduring strength and grace of women and mothers everywhere. It's more than wine; it's a legacy rooted in love and respect.</p>
                     <a href="#" class="btn">Learn More</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sonoma Vineyard">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="A lush green vineyard in Sonoma County, home of Pérenne Wines">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vineyards & Origins Section -->
+    <section id="origins">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Sonoma County Vineyards & Origins</h2>
+            </div>
+            <div class="origins-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Our roots run deep in Healdsburg, the heart of Sonoma County. This historic town, with its charming plaza and world-renowned terroir, is where our journey began. It started not in a sprawling vineyard, but in a local institution: Healdsburg Liquor & Market, the origin spot where a passion for wine took hold.</p>
+                <p>We are inspired by the rich storytelling of wine country and are committed to crafting wines that speak of this unique place. As we grow, we carry a vision of expanding our vineyards, even dreaming of bringing the Pérenne spirit to the landscapes of India, blending our heritage with our future.</p>
             </div>
         </div>
     </section>
@@ -100,39 +1078,61 @@
     <section id="wines">
         <div class="container">
             <div class="section-title">
-                <h2>Our Collection</h2>
+                <h2>Our Luxury Wine Collection</h2>
             </div>
             <div class="wines-grid">
+                <!-- Pinot Noir -->
                 <div class="wine-card">
                     <div class="wine-image">
-                        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Pérenne Pinot Noir">
+                        <img src="https://pperenne.com/images/pinot-noir.jpg" alt="A dark, ornate bottle labeled 'Pérenne Pinot Noir,' 'A Pour For Her,' with a woman holding a wine glass. Label mentions Healdsburg, Sonoma County, Limited Edition 2022. Gold cap and intricate design.">
                     </div>
                     <div class="wine-info">
-                        <h3>Pinot Noir</h3>
-                        <span class="wine-type">Sonoma County</span>
-                        <p>A taste of romance, with notes of cherry, raspberry, and a hint of spice.</p>
+                        <h3>Pinot Noir (Limited Edition, Lady Label)</h3>
+                        <p>A Pour for Her</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
+                <!-- Chardonnay -->
                 <div class="wine-card">
                     <div class="wine-image">
-                        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Pérenne Brut">
+                        <img src="https://pperenne.com/images/chardonnay.jpg" alt="A tall, elegant wine bottle labeled 'Perenne,' Chardonnay, Healdsburg Sonoma County, 2022. Modern design with vertical ridges and a gold cap.">
                     </div>
                     <div class="wine-info">
-                        <h3>Brut Champagne</h3>
-                        <span class="wine-type">Sonoma County</span>
-                        <p>Celebrate life's moments with our crisp and elegant Brut Champagne.</p>
+                        <h3>Chardonnay</h3>
+                        <p>A Pour for Brighter Days</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
+                <!-- Premoire Champagne -->
                 <div class="wine-card">
                     <div class="wine-image">
-                        <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Pérenne Rosé">
+                        <img src="https://pperenne.com/images/premoire-champagne-brut.jpg" alt="A sparkling, light-colored champagne bottle labeled 'Premoire Champagne Brut,' 'Celebration of Love, Care and Life,' Sonoma County, California, 2022. Gold cap and textured, glittery finish.">
                     </div>
                     <div class="wine-info">
-                        <h3>Rosé</h3>
-                        <span class="wine-type">Sonoma County</span>
-                        <p>Romance in every glass, with delicate notes of strawberry and citrus.</p>
+                        <h3>Premoire Champagne Brut</h3>
+                        <p>Celebration of Love, Care and Life</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <!-- Pinot Noir (Regular) -->
+                <div class="wine-card">
+                    <div class="wine-image">
+                        <img src="https://pperenne.com/images/perenne-pinot-noir.jpg" alt="A dark wine bottle with red foil top labeled 'Pérenne Pinot Noir,' Healdsburg, Sonoma County, California. Surrounded by red roses on a black background.">
+                    </div>
+                    <div class="wine-info">
+                        <h3>Pérenne Pinot Noir</h3>
+                        <p>A Pour for Every Story</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <!-- Rosé -->
+                <div class="wine-card">
+                    <div class="wine-image">
+                        <img src="https://pperenne.com/images/perenne-rose.jpg" alt="A rosé wine bottle labeled 'Pérenne Rosé,' 'Romance in Every Glass,' Sonoma County. Gold foil top, pinkish hue, and a textured brown background.">
+                    </div>
+                    <div class="wine-info">
+                        <h3>Pérenne Rosé</h3>
+                        <p>Romance in Every Glass</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
@@ -140,36 +1140,53 @@
         </div>
     </section>
 
-    <!-- Membership Section -->
+    <!-- Membership & Events Section -->
     <section id="membership">
         <div class="container">
             <div class="section-title">
-                <h2>Become a Member</h2>
+                <h2>Membership & Events</h2>
             </div>
             <div class="membership-cards">
                 <div class="membership-card">
-                    <h3>Club Pérenne</h3>
-                    <div class="price">$150<span>/shipment</span></div>
+                    <h3>Gold Tier</h3>
                     <ul class="benefits-list">
-                        <li>4 shipments per year (3 bottles each)</li>
-                        <li>15% off all wine purchases</li>
-                        <li>Complimentary tasting for 4 guests</li>
-                        <li>Exclusive access to new releases</li>
+                        <li>Exclusive tastings</li>
+                        <li>Invitations to special events</li>
+                        <li>Quarterly wine shipments</li>
+                        <li>Discounts on all wine purchases</li>
                     </ul>
                     <a href="#" class="btn">Join Now</a>
                 </div>
                 <div class="membership-card">
-                    <h3>Collector's Circle</h3>
-                    <div class="price">$300<span>/shipment</span></div>
+                    <h3>Platinum Tier</h3>
                     <ul class="benefits-list">
-                        <li>4 shipments per year (6 bottles each)</li>
-                        <li>20% off all wine purchases</li>
-                        <li>Complimentary tasting for 6 guests</li>
-                        <li>Priority access to library wines</li>
-                        <li>Invitations to exclusive events</li>
+                        <li>All Gold Tier benefits</li>
+                        <li>Access to custom bottle labeling</li>
+                        <li>Private vineyard visits</li>
+                        <li>Priority access to limited releases</li>
+                        <li>Complimentary premium packaging</li>
                     </ul>
                     <a href="#" class="btn">Join Now</a>
                 </div>
+            </div>
+            <div class="events-calendar" style="text-align: center; margin-top: 80px;">
+                <div class="section-title">
+                    <h2>Upcoming Events</h2>
+                </div>
+                <p>Join us for exclusive weddings, festivals, and parties in both California and India. Calendar coming soon!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization & Gifts Section -->
+    <section id="gifting">
+        <div class="container">
+            <div class="section-title">
+                <h2>Custom Wine Bottles & Gifts</h2>
+            </div>
+            <div class="gifting-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Make any occasion unforgettable with a personalized touch. We offer custom bottle labels perfect for adding names, dates, or special events to your wine selection. Our corporate and wedding gifting options provide a sophisticated way to show appreciation and celebrate milestones.</p>
+                <p>Elevate your gift with our exclusive add-ons, including elegant Pérenne jute bags and premium packaging, to create a truly memorable experience.</p>
             </div>
         </div>
     </section>
@@ -199,9 +1216,9 @@
                 <div class="contact-info">
                     <h3>Visit Our Estate</h3>
                     <div class="contact-details">
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Vineyard Lane, Healdsburg, CA 95448</p>
-                        <p><i class="fas fa-phone"></i> (707) 555-1234</p>
-                        <p><i class="fas fa-envelope"></i> contact@perennewines.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 427 Center St, Healdsburg, CA</p>
+                        <p><i class="fas fa-phone"></i> 707-849-0404</p>
+                        <p><i class="fas fa-envelope"></i> thepourer.rps@pperenne.com</p>
                     </div>
                     <div class="map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d200421.069815373!2d-122.95961824863281!3d38.50489499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80843d3b3f6f3b1f%3A0x2e4bce5e8a3a3a4!2sHealdsburg%2C%20CA%2095448!5e0!3m2!1sen!2sus!4v1685570572898!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -248,17 +1265,18 @@
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p>123 Vineyard Lane<br>Healdsburg, CA 95448</p>
-                    <p>contact@perennewines.com</p>
+                    <p>427 Center St<br>Healdsburg, CA</p>
+                    <p>thepourer.rps@pperenne.com</p>
+                    <p>707-849-0404</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/perenne.wine/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61580467825740" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Pérenne Wines. All Rights Reserved.</p>
+                <p>&copy; 2025 Pérenne Wines. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Trademark Notice</a></p>
             </div>
         </div>
     </footer>
@@ -275,7 +1293,12 @@
             </div>
             <div class="chatbot-messages" id="chatbotMessages">
                 <div class="message bot-message">
-                    Hello! How can I help you today?
+                    Hello! I'm your Pérenne wine assistant. How can I help you today?
+                    <div class="quick-actions">
+                        <button class="quick-action-btn" data-action="wines">Our Wines</button>
+                        <button class="quick-action-btn" data-action="membership">Membership</button>
+                        <button class="quick-action-btn" data-action="visit">Visit Us</button>
+                    </div>
                 </div>
             </div>
             <div class="chatbot-input">
@@ -285,6 +1308,225 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Video Fallback
+        const heroVideo = document.getElementById('heroVideo');
+        const videoFallback = document.querySelector('.video-fallback');
+
+        // Check if video is playing properly
+        heroVideo.addEventListener('error', () => {
+            videoFallback.style.display = 'block';
+        });
+
+        // If video doesn't load within 5 seconds, show fallback
+        setTimeout(() => {
+            if (heroVideo.readyState < 3) { // HAVE_FUTURE_DATA
+                videoFallback.style.display = 'block';
+            }
+        }, 5000);
+
+        // Chatbot Functionality
+        const chatbotBtn = document.getElementById('chatbotBtn');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const quickActionBtns = document.querySelectorAll('.quick-action-btn');
+
+        chatbotBtn.addEventListener('click', () => {
+            chatbotWindow.style.display = 'flex';
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.style.display = 'none';
+        });
+
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Quick action buttons
+        quickActionBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const action = e.target.getAttribute('data-action');
+                handleQuickAction(action);
+            });
+        });
+
+        function addMessage(text, sender, isTyping = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', `${sender}-message`);
+
+            if (isTyping) {
+                messageDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+                messageDiv.id = 'typing-indicator';
+            } else {
+                messageDiv.textContent = text;
+            }
+
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function handleQuickAction(action) {
+            let response = '';
+
+            switch(action) {
+                case 'wines':
+                    response = 'We offer a premium collection of wines including our Limited Edition Pinot Noir, Chardonnay, Malbec, Soniro Champagne, and Rosègha Sparkling Rosé. Each wine tells a unique story. Which one would you like to know more about?';
+                    break;
+                case 'membership':
+                    response = 'Our wine club offers two tiers: Gold and Platinum. Gold members enjoy exclusive tastings and quarterly shipments, while Platinum members get additional benefits like private vineyard visits and custom labeling. Would you like details on a specific tier?';
+                    break;
+                case 'visit':
+                    response = 'Our estate is located at 427 Center St in beautiful Healdsburg, Sonoma County. We\'re open for tastings Thursday-Monday from 11am-6pm. Would you like information on scheduling a visit or directions?';
+                    break;
+            }
+
+            addMessage(response, 'bot');
+        }
+
+        function getBotResponse(message) {
+            const lowerCaseMessage = message.toLowerCase();
+
+            if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('hey')) {
+                return 'Hello! Welcome to Pérenne Wines. How can I assist you with our luxury collection today?';
+            }
+            if (lowerCaseMessage.includes('thank')) {
+                return 'You\'re very welcome! Is there anything else I can help you with today?';
+            }
+            if (lowerCaseMessage.includes('pinot noir')) {
+                return 'Our Limited Edition Pinot Noir is a truly special wine, crafted to honor the grace of women. It has notes of ripe cherry, raspberry, and earthy undertones with a smooth finish. Perfect with roasted poultry or mushroom dishes. Would you like to know about availability or pricing?';
+            }
+            if (lowerCaseMessage.includes('chardonnay')) {
+                return 'Our Chardonnay is a bright, elegant wine with notes of citrus, green apple, and a hint of vanilla. It\'s beautifully balanced with crisp acidity. Excellent with seafood or creamy pasta dishes.';
+            }
+            if (lowerCaseMessage.includes('malbec')) {
+                return 'The Pérenne Malbec is rich and robust with dark fruit flavors, violet aromas, and a smooth, velvety finish. It pairs wonderfully with grilled meats and hearty stews.';
+            }
+            if (lowerCaseMessage.includes('champagne') || lowerCaseMessage.includes('sparkling')) {
+                return 'Our Soniro Champagne and Rosègha Sparkling Rosé are perfect for celebrations. The Soniro has fine bubbles with notes of citrus and brioche, while the Rosègha offers delicate strawberry and floral notes. Are you celebrating something special?';
+            }
+            if (lowerCaseMessage.includes('membership') || lowerCaseMessage.includes('club')) {
+                return 'Our Pérenne Wine Club offers exclusive benefits. The Gold Tier ($95/quarter) provides quarterly shipments of 3 bottles, exclusive tastings, and 15% discounts. The Platinum Tier ($150/quarter) includes all Gold benefits plus private vineyard visits, custom labeling, and priority access to limited releases. Which tier interests you?';
+            }
+            if (lowerCaseMessage.includes('gifts') || lowerCaseMessage.includes('custom')) {
+                return 'We specialize in custom gifts! You can personalize bottles for corporate events, weddings, or special occasions with custom labels. We also offer premium packaging with elegant Pérenne jute bags. What\'s the occasion you\'re celebrating?';
+            }
+            if (lowerCaseMessage.includes('sonoma') || lowerCaseMessage.includes('healdsburg') || lowerCaseMessage.includes('location') || lowerCaseMessage.includes('visit')) {
+                return 'Our roots are in Healdsburg, in the heart of Sonoma County. You can visit our estate at 427 Center St, Healdsburg, CA. We\'re open Thursday-Monday from 11am-6pm for tastings. Would you like directions or information on scheduling a private tasting?';
+            }
+            if (lowerCaseMessage.includes('hours') || lowerCaseMessage.includes('open')) {
+                return 'Our tasting room is open Thursday through Monday from 11am to 6pm. We recommend reservations for groups of 6 or more. Would you like to make a reservation?';
+            }
+            if (lowerCaseMessage.includes('ship') || lowerCaseMessage.includes('deliver')) {
+                return 'We ship to most states across the US. Shipping rates vary by location and order size. Most orders arrive within 5-7 business days. Would you like information about shipping to your specific location?';
+            }
+            if (lowerCaseMessage.includes('story') || lowerCaseMessage.includes('about')) {
+                return 'Pérenne was founded by Rohit Prinja Sharma as a tribute to his mother Prem and the strength of women everywhere. The name means "eternal" representing our commitment to crafting wines that create lasting memories. Would you like to know more about our journey?';
+            }
+            if (lowerCaseMessage.includes('event') || lowerCaseMessage.includes('celebration')) {
+                return 'We host various events throughout the year including wine release parties, seasonal celebrations, and private events. We also participate in festivals in California and India. Our calendar for next season will be released soon—would you like to be added to our events newsletter?';
+            }
+
+            return 'I\'m sorry, I don\'t have that information just yet. Please contact our team at thepourer.rps@pperenne.com or call 707-849-0404 for more specific inquiries. Is there anything else I can help you with?';
+        }
+
+        async function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+            chatbotInput.focus();
+
+            // Show typing indicator
+            addMessage('', 'bot', true);
+
+            // Simulate network delay and get response
+            await new Promise(resolve => setTimeout(resolve, 1200));
+            const botResponse = getBotResponse(message);
+
+            // Remove typing indicator and add bot message
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+
+            // Add quick actions to certain responses
+            if (botResponse.includes('Gold Tier') || botResponse.includes('Platinum Tier')) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'bot-message');
+                messageDiv.textContent = botResponse;
+
+                const quickActions = document.createElement('div');
+                quickActions.classList.add('quick-actions');
+                quickActions.innerHTML = `
+                    <button class="quick-action-btn" data-action="gold">Gold Tier</button>
+                    <button class="quick-action-btn" data-action="platinum">Platinum Tier</button>
+                `;
+
+                messageDiv.appendChild(quickActions);
+                chatbotMessages.appendChild(messageDiv);
+
+                // Add event listeners to new buttons
+                document.querySelectorAll('.quick-action-btn[data-action="gold"]').forEach(btn => {
+                    btn.addEventListener('click', () => handleQuickAction('gold'));
+                });
+                document.querySelectorAll('.quick-action-btn[data-action="platinum"]').forEach(btn => {
+                    btn.addEventListener('click', () => handleQuickAction('platinum'));
+                });
+            } else {
+                addMessage(botResponse, 'bot');
+
+                // Add quick actions for common follow-ups
+                if (botResponse.includes('Pinot Noir') || botResponse.includes('Chardonnay') ||
+                    botResponse.includes('Malbec') || botResponse.includes('Champagne')) {
+                    const quickActions = document.createElement('div');
+                    quickActions.classList.add('quick-actions');
+                    quickActions.innerHTML = `
+                        <button class="quick-action-btn" data-action="purchase">How to Purchase</button>
+                        <button class="quick-action-btn" data-action="pairing">Food Pairing</button>
+                    `;
+
+                    chatbotMessages.lastElementChild.appendChild(quickActions);
+
+                    // Add event listeners
+                    document.querySelectorAll('.quick-action-btn[data-action="purchase"]').forEach(btn => {
+                        btn.addEventListener('click', () => handleQuickAction('purchase'));
+                    });
+                    document.querySelectorAll('.quick-action-btn[data-action="pairing"]').forEach(btn => {
+                        btn.addEventListener('click', () => handleQuickAction('pairing'));
+                    });
+                }
+            }
+
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+    </script>
 </body>
 </html>
